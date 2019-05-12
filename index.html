@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="assets/css/materialize.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>In-Traverse </title>
+    <!-- materialize css file -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- materialize css file -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Narrow|Lobster" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">In-Traverse : Commute Scheduler </span>
+
+        <button id="toggler" type="button" class="btn btn-md btn-success" data-toggle="popover" title="GIPHYFI OFF"
+            data-content="">Toggle Weather : Status : ON </button>
+    </nav>
+
+
+    <br>
+
+
+    <div class="jumbotron jumbotron-fluid bg-info text-dark bo">
+        <div class="container">
+            <h1 class="display-4 main">In-Traverse : Commute Scheduler </h1>
+            <p class="lead">Schedule your commute</p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="card bg-info text-dark">
+            <div class="card-header">
+                <p class="text1 main">Commute Schedule</p>
+                <button id="clear" class="btn btn-danger">Clear</button>
+            </div>
+            <div class="card-body">
+                <table class="centered striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" id="remove">DELETE</th>
+                            <th scope="col">Transport Type</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency (mins)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card my-4 bg-info text-dark border">
+            <div class="card-header">
+                <p class=text1>Add a Transportation</p>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Transport Type</label>
+                        <input type="text" class="form-control" id="name" placeholder="Bus / Train / Tram ">
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Destination</label>
+                        <input type="text" class="form-control" id="destination" placeholder="Seattle">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">First Train Time (HH:mm - military time)</label>
+                        <input type="text" class="form-control" id="time" placeholder="12:34">
+                    </div>
+                    <div class="form-group">
+                        <label for="rate">Frequency (mins)</label>
+                        <input type="text" class="form-control" id="frequency" placeholder="20">
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+        <script src="assets/javascript/logic.js" type="text/javascript"></script>
+
+</body>
+
+</html>
