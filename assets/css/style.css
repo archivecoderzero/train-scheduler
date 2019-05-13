@@ -54,3 +54,17 @@ body {
 #hideWeather {
     margin:20px;
 }
+
+.card-footer{
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    background: black;
+}
+
+.card-footer:hover{
+border: blue 1px solid;
+transition: .5s ease;
+color: blue;
+font-size: 16px;
+}
