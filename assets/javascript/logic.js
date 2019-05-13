@@ -27,9 +27,16 @@ $(document).ready(function () {
     });
 });
 
+
+
+
+
+
     $(document.body).on("click", '.close', function () {
         $(this).parent().parent().addClass("d-none");
     });
+
+
 
 
     database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function (childSnapshot) {
@@ -69,3 +76,75 @@ $(document).ready(function () {
     });
 
 });
+
+$(document).on("click","#toggler" , getLocation)
+
+
+  
+    var temperature;
+  
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+  
+          var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&units=imperial&APPID=6f5733cd2bffb62eaa78ffbc321576e5";
+          console.log(queryURL);
+          getWeather(queryURL);
+        });
+      } else {
+        console.log("need data");
+      }
+    }
+  
+    function getWeather(queryURL) {
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).done(function (response) {
+        var city = response.name;
+        temperature = Math.round(response.main.temp);
+        var humidity = response.main.humidity;
+        var condition = response.weather[0].main;
+        var iconCode = "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+        var code = response.weather[0].icon;
+  
+            switch (code) {
+              case '11d':
+              case '11n':
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('images/stormy.gif')")
+                break;
+              case '09d':
+              case '09n':
+              case '10d':
+              case '10n':
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/rain.gif')")
+                break;
+              case '13d':
+              case '13n':
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/snow.gif')")
+                break;
+              case '01d':
+              case '01n':
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/clear.gif')")
+                break;
+              case '02d':
+              case '02n':
+              case '03d':
+              case '03n':
+              case '04d':
+              case '04n':
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/cloudy.gif')")
+                break;    
+              default:
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/weather.gif')")
+                break;
+            }
+  
+        $("#city").text(city);
+        $("#condition").text(condition);
+        $("#statusIcon").attr("src", iconCode);
+        $("#temp").text(temperature + '\u00B0');
+        $("#humidity").text(humidity + '\u0025');
+      });
+  
+    }
