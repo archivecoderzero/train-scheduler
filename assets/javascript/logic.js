@@ -31,7 +31,6 @@ $(document).ready(function () {
 
 
 
-
     $(document.body).on("click", '.close', function () {
         $(this).parent().parent().addClass("d-none");
     });
@@ -77,9 +76,35 @@ $(document).ready(function () {
 
 });
 
-$(document).on("click","#toggler" , getLocation)
+$(".container-fluid").hide();
+$("card.my-4.bg-info.text-dark.border").hide();
+$(".lead").hide();
+
+$(document).on("click","#locator" , getLocation);
+
+$(document).on("click","#displayInfo" ,displayInfoSkip );
 
 
+
+
+
+function displayInfoSkip() {
+$(".container-fluid").show();
+$("card.my-4.bg-info.text-dark.border").show();
+$("#locator").text("Check The Current Weather");
+$("#displayInfo").hide();
+$(".lead").hide();
+
+
+}
+function displayInfo() {
+    $(".container-fluid").show();
+    $("card.my-4.bg-info.text-dark.border").show();
+    $("#locator").text("Check The Current Weather");
+    $("#displayInfo").hide();
+    $(".lead").show();
+
+    }
   
     var temperature;
   
@@ -90,9 +115,11 @@ $(document).on("click","#toggler" , getLocation)
           var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&units=imperial&APPID=6f5733cd2bffb62eaa78ffbc321576e5";
           console.log(queryURL);
           getWeather(queryURL);
+          displayInfo();
         });
       } else {
-        console.log("need data");
+        console.log("NO CONNECTION");
+        displayInfo();
       }
     }
   
@@ -142,7 +169,6 @@ $(document).on("click","#toggler" , getLocation)
   
         $("#city").text(city);
         $("#condition").text(condition);
-        $("#statusIcon").attr("src", iconCode);
         $("#temp").text(temperature + '\u00B0');
         $("#humidity").text(humidity + '\u0025');
       });
