@@ -1,2 +1,4 @@
 # train-scheduler
-usage of firebase Jquery and vanilla js
+
+
+### view deployment here : https://github.com/archivecoderzero/train-scheduler 
