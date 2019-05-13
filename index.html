@@ -28,23 +28,27 @@
     <br>
 
 
-    <div class="jumbotron jumbotron-fluid bg-info text-dark">
+    <div class="jumbotron jumbotron-fluid bg-dark text-light">
         <div class="container">
             <h1 class="display-4 main">In-Traverse : Commute Scheduler </h1>
             <p class="lead">Schedule your commute!</p>
-            <button id="locator" type="button" class="btn btn-md btn-success" data-toggle="popover" title="location"
+            <button id="locator" type="button" class="btn btn-md btn-light" data-toggle="popover" title="location"
                 data-content="">Start Here!</button>
-            <button id="displayInfo" type="button" class="btn btn-md btn-success" data-toggle="popover"
+            <button id="displayInfo" type="button" class="btn btn-md btn-info" data-toggle="popover"
                 title="display data" data-content="">Display Info</button>
         </div>
     </div>
 
     <br>
     <div class="container weather">
-    <div class="jumbotron-fluid weather">
+    <div class="jumbotron-fluid weather bg-dark text-light border-info">
 
             <div class=row>
-                <div class=col-4></div>
+                <div class=col-4>
+                        <button id="hideWeather" type="button" class="btn btn-md btn-warning"
+                        data-toggle="popover" title="location" data-content="">Hide This</button>
+
+                </div>
                 <div class=col-2>
                     <div class="cardWeather" style="width: 18rem;">
                         <img class="card-img-top weather" src="assets/image/placer.gif" alt="Card image cap">
@@ -59,8 +63,7 @@
                             </h2>
                             <div class=buttonCardDiv>
                                 <button id="locatorInCard" type="button" class="btn btn-md btn-info"
-                                    data-toggle="popover" title="location" data-content="">Check the
-                                    Weather</button>
+                                    data-toggle="popover" title="location" data-content="">Recheck The Weather</button>
                             </div>
                         </div>
                     </div>
@@ -76,7 +79,7 @@
     <br>
 
     <div class="container-fluid">
-        <div class="card bg-info text-dark">
+        <div class="card bg-dark text-light border-info">
             <div class="card-header">
                 <p class="text1 main">Commute Schedule</p>
                 <button id="clear" class="btn btn-danger">Clear</button>
@@ -100,7 +103,7 @@
             </div>
         </div>
 
-        <div class="card my-4 bg-info text-dark border">
+        <div class="card my-4 bg-dark text-light border-info">
             <div class="card-header">
                 <p class=text1>Add a Transportation</p>
             </div>

@@ -87,8 +87,9 @@ $(document).on("click","#locator" , getLocation);
 
 $(document).on("click","#displayInfo" ,displayInfoSkip );
 
+$(document).on("click","#hideWeather" , hideWeather);
 
-
+$(document).on("click","#locatorInCard" , getLocation);
 
 
 function displayInfoSkip() {
@@ -96,17 +97,22 @@ $(".container-fluid").show();
 $("card.my-4.bg-info.text-dark.border").show();
 $("#displayInfo").hide();
 $(".jumbotron-fluid.weather").hide();
-$(".#locator").hide();
-
-
-
+$("#locator").hide();
 }
+
+
+function hideWeather() {
+    $("#displayInfo").hide();
+    $(".jumbotron-fluid.weather").hide();
+}
+
 function displayInfo() {
     $(".container-fluid").show();
     $("card.my-4.bg-info.text-dark.border").show();
     $("#locator").text("Check The Current Weather");
     $("#displayInfo").hide();
     $(".jumbotron-fluid.weather").show();
+    $("#locator").hide();
 
 
     }

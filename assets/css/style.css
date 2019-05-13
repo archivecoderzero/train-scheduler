@@ -46,3 +46,11 @@
     display: block;
     max-width: 300px;
 }
+
+body {
+    background-image:url(../../assets/images/bg.jpg)
+}
+
+#hideWeather {
+    margin:20px;
+}
