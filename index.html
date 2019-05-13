@@ -32,18 +32,48 @@
         <div class="container">
             <h1 class="display-4 main">In-Traverse : Commute Scheduler </h1>
             <p class="lead">Schedule your commute!</p>
-            <button id="locator" type="button" class="btn btn-md btn-success" data-toggle="popover" title="GIPHYFI OFF"
-            data-content="">Start Here!</button>
-            <button id="displayInfo" type="button" class="btn btn-md btn-success" data-toggle="popover" title="GIPHYFI OFF"
-            data-content="">Display Info</button>
-             <p class="lead">Your Location :</p><p id="city" class="lead">??</p>
-             <p class="lead">Weather :</p> <p id="condition" class="lead">??</p>
-             <p class="lead">Temperature : </p> <p id="temp" class="lead">??</p>
-             <p class="lead">Humidity : </p> <p id="humidity" class="lead">??</p>
-
-
+            <button id="locator" type="button" class="btn btn-md btn-success" data-toggle="popover" title="location"
+                data-content="">Start Here!</button>
+            <button id="displayInfo" type="button" class="btn btn-md btn-success" data-toggle="popover"
+                title="display data" data-content="">Display Info</button>
         </div>
     </div>
+
+    <br>
+    <div class="container weather">
+    <div class="jumbotron-fluid weather">
+
+            <div class=row>
+                <div class=col-4></div>
+                <div class=col-2>
+                    <div class="cardWeather" style="width: 18rem;">
+                        <img class="card-img-top weather" src="assets/image/placer.gif" alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class=weatherInfo>Your Location: </span> <span id="city"
+                                    class="weatherInfo">??</span></h2>
+                            <h2 class=weatherInfo>Weather </span> <span id="condition" class="weatherInfo">??</span>
+                            </h2>
+                            <h2 class=weatherInfo>Temperature</span> <span id="temp" class="weatherInfo">??</span>
+                            </h2>
+                            <h2 class=weatherInfo>Humidity</span> <span id="humidity" class="weatherInfo">??</span>
+                            </h2>
+                            <div class=buttonCardDiv>
+                                <button id="locatorInCard" type="button" class="btn btn-md btn-info"
+                                    data-toggle="popover" title="location" data-content="">Check the
+                                    Weather</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=col-2></div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
 
     <div class="container-fluid">
         <div class="card bg-info text-dark">
@@ -54,7 +84,7 @@
             <div class="card-body">
                 <table class="centered striped">
                     <thead>
-                        <tr>
+                        <tr class="databaseResult">
                             <th scope="col" id="remove">DELETE</th>
                             <th scope="col">Transport Type</th>
                             <th scope="col">Destination</th>

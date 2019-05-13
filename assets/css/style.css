@@ -31,8 +31,18 @@
     right:55px;
 }
 
-.lead {
+.weatherInfo {
     font-size : 25px;
     font-weight: 800;
     text-align: center;
+    color: black;
+}
+
+
+#locatorInCard {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+    max-width: 300px;
 }

@@ -15,7 +15,6 @@ $(document).ready(function () {
         var time = $('#time').val().trim();
         var frequency = $('#frequency').val().trim();
         event.preventDefault();
-        
             database.ref().push({
                 "name": name,
                 "destination": destination,
@@ -32,7 +31,13 @@ $(document).ready(function () {
 
 
     $(document.body).on("click", '.close', function () {
+        console.log(this)
         $(this).parent().parent().addClass("d-none");
+    });
+
+    $(document.body).on("click", '#clear', function () {
+        console.log("working")
+        $("#result").empty();
     });
 
 
@@ -70,15 +75,13 @@ $(document).ready(function () {
 
     database.ref().on("child_added", function (snapshot) {
         var sv = snapshot.val();
-        console.log(sv);
-
     });
 
 });
 
 $(".container-fluid").hide();
 $("card.my-4.bg-info.text-dark.border").hide();
-$(".lead").hide();
+$(".jumbotron-fluid.weather").hide();
 
 $(document).on("click","#locator" , getLocation);
 
@@ -91,9 +94,10 @@ $(document).on("click","#displayInfo" ,displayInfoSkip );
 function displayInfoSkip() {
 $(".container-fluid").show();
 $("card.my-4.bg-info.text-dark.border").show();
-$("#locator").text("Check The Current Weather");
 $("#displayInfo").hide();
-$(".lead").hide();
+$(".jumbotron-fluid.weather").hide();
+$(".#locator").hide();
+
 
 
 }
@@ -102,7 +106,8 @@ function displayInfo() {
     $("card.my-4.bg-info.text-dark.border").show();
     $("#locator").text("Check The Current Weather");
     $("#displayInfo").hide();
-    $(".lead").show();
+    $(".jumbotron-fluid.weather").show();
+
 
     }
   
@@ -113,7 +118,6 @@ function displayInfo() {
         navigator.geolocation.getCurrentPosition(function (position) {
   
           var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&units=imperial&APPID=6f5733cd2bffb62eaa78ffbc321576e5";
-          console.log(queryURL);
           getWeather(queryURL);
           displayInfo();
         });
@@ -138,55 +142,61 @@ function displayInfo() {
             switch (code) {
               case '11d':
               case '11n':
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/stormy.gif')");
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
-
+                $('.card-img-top.weather').attr("src", "assets/images/stormy.png");
+                $('.jumbotron-fluid.weather').css("background-image", "url('assets/images/stormy.gif')");
+                $('.jumbotron-fluid.weather').css("background-position", "center");
+                $('.jumbotron-fluid.weather').css("background-repeat", "no-repeat");
+                $('.jumbotron-fluid.weather').css("background-size", "cover");
                 break;
               case '09d':
               case '09n':
               case '10d':
               case '10n':
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/rain.gif')");
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
+              $('.card-img-top.weather').attr("src", "assets/images/rain.png");
+              $('.jumbotron-fluid.weather').css("background-image", "url('assets/images/rain.gif')");
+              $('.jumbotron-fluid.weather').css("background-position", "center");
+              $('.jumbotron-fluid.weather').css("background-repeat", "no-repeat");
+              $('.jumbotron-fluid.weather').css("background-size", "cover");
 
-                break;
+              break;
               case '13d':
               case '13n':
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/snow.gif')");
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
+              $('.card-img-top.weather').attr("src", "assets/images/snow.png");
+              $('.jumbotron-fluid.weather').css("background-image", "url('assets/images/snow.gif')");
+              $('.jumbotron-fluid.weather').css("background-position", "center");
+              $('.jumbotron-fluid.weather').css("background-repeat", "no-repeat");
+              $('.jumbotron-fluid.weather').css("background-size", "cover");
 
-                break;
+              break;
               case '01d':
               case '01n':
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/clear.gif')");
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
+              $('.card-img-top.weather').attr("src", "assets/images/clear.png");
+              $('.jumbotron-fluid.weather').css("background-image", "url('assets/images/clear.gif')");
+              $('.jumbotron-fluid.weather').css("background-position", "center");
+              $('.jumbotron-fluid.weather').css("background-repeat", "no-repeat");
+              $('.jumbotron-fluid.weather').css("background-size", "cover");
 
-                break;
+              break;
               case '02d':
               case '02n':
               case '03d':
               case '03n':
               case '04d':
               case '04n':
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/cloudy.gif')")
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center")
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat")
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover")
+              $('.card-img-top.weather').attr("src", "assets/images/cloudy.png");
+              $('.jumbotron-fluid.weather').css("background-image", "url('assets/images/cloudy.gif')");
+              $('.jumbotron-fluid.weather').css("background-position", "center");
+              $('.jumbotron-fluid.weather').css("background-repeat", "no-repeat");
+              $('.jumbotron-fluid.weather').css("background-size", "cover");
 
-                break;    
+              break;    
               default:
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/weather.gif')");
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
+              $('.card-img-top.weather').attr("src", "assets/images/placer.gif");
+              $('.jumbotron-fluid.weather').css("background-image", "url('assets/images/placer.gif')");
+              $('.jumbotron-fluid.weather').css("background-position", "center");
+              $('.jumbotron-fluid.weather').css("background-repeat", "no-repeat");
+              $('.jumbotron-fluid.weather').css("background-size", "cover");
+
 
                 break;
             }
