@@ -138,21 +138,37 @@ function displayInfo() {
             switch (code) {
               case '11d':
               case '11n':
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('images/stormy.gif')")
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/stormy.gif')");
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
+
                 break;
               case '09d':
               case '09n':
               case '10d':
               case '10n':
-                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/rain.gif')")
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/rain.gif')");
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
+                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
+
                 break;
               case '13d':
               case '13n':
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/snow.gif')")
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/snow.gif')");
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
+
                 break;
               case '01d':
               case '01n':
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/clear.gif')")
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/clear.gif')");
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
+
                 break;
               case '02d':
               case '02n':
@@ -161,9 +177,17 @@ function displayInfo() {
               case '04d':
               case '04n':
                $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/cloudy.gif')")
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center")
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat")
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover")
+
                 break;    
               default:
-               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/weather.gif')")
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-image", "url('assets/images/weather.gif')");
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-position", "center");
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-repeat", "no-repeat");
+               $('.jumbotron.jumbotron-fluid.bg-info.text-dark').css("background-size", "cover");
+
                 break;
             }
   
